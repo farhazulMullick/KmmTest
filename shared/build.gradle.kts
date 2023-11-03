@@ -26,12 +26,33 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
+
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.client.content.negotiation)//converts response to dto object
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktor.client.logging)// enable http logging
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(libs.kotlin.test)
+            }
+        }
+        val androidMain by getting {
+            dependsOn(commonMain)
+            dependencies {
+                implementation(libs.koin.android)
+                implementation(libs.ktor.client.android)
+            }
+        }
+
+        val iosMain by getting {
+            dependsOn(commonMain)
+            dependencies {
+                implementation(libs.ktor.client.ios)
             }
         }
     }

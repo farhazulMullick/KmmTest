@@ -1,11 +1,12 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ksp)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    applyDefaultHierarchyTemplate()
+    targetHierarchy.default()
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -35,6 +36,7 @@ kotlin {
                 implementation(libs.ktor.client.content.negotiation)//converts response to dto object
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.ktor.client.logging)// enable http logging
+                implementation(libs.kotlinInject.runtime)
             }
         }
         val commonTest by getting {
@@ -47,12 +49,18 @@ kotlin {
                 implementation(libs.koin.android)
                 implementation(libs.ktor.client.android)
             }
+            this.dependsOn(commonMain)
         }
 
+        val iosX64Main by getting
+        val iosArm64Main by getting
         val iosMain by getting {
             dependencies {
                 implementation(libs.ktor.client.ios)
             }
+            this.dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
         }
     }
 }
@@ -63,4 +71,10 @@ android {
     defaultConfig {
         minSdk = 24
     }
+}
+
+dependencies {
+    add("kspIosX64", libs.kotlinInject.compiler)
+    add("kspIosArm64", libs.kotlinInject.compiler)
+    add("kspIosSimulatorArm64", libs.kotlinInject.compiler)
 }

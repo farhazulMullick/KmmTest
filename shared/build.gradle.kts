@@ -55,6 +55,9 @@ kotlin {
                 api(libs.moko.mvvm.flow)
                 api(libs.moko.mvvm.flow.compose)
                 api(libs.moko.mvvm.flow.resources)
+                api(libs.moko.resources)
+                api(libs.moko.resources.compose)
+
             }
         }
         val commonTest by getting {
@@ -95,9 +98,4 @@ dependencies {
     add("kspIosX64", libs.kotlinInject.compiler)
     add("kspIosArm64", libs.kotlinInject.compiler)
     add("kspIosSimulatorArm64", libs.kotlinInject.compiler)
-
-    commonMainApi("dev.icerock.moko:resources:0.23.0")
-    commonMainApi("dev.icerock.moko:resources-compose:0.23.0") // for compose multiplatform
-
-    commonTestImplementation("dev.icerock.moko:resources-test:0.23.0")
 }

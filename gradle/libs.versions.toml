@@ -8,7 +8,7 @@ androidx-activityCompose = "1.7.2"
 koin = "3.4.3"
 koin-compose = "1.0.4"
 mokoVersion = "0.16.1"
-mokoVersionResource = "0.23.0"
+mokoMainVersion = "0.23.0"
 ktorVersion = "2.3.5"
 ksp = "1.9.10-1.0.13"
 kotlininject = "0.6.1"
@@ -42,6 +42,9 @@ moko-mvvm-core = { module = "dev.icerock.moko:mvvm-core", version.ref = "mokoVer
 moko-mvvm-flow = { module = "dev.icerock.moko:mvvm-flow", version.ref = "mokoVersion" }
 moko-mvvm-flow-compose = { module = "dev.icerock.moko:mvvm-flow-compose", version.ref = "mokoVersion" }
 moko-mvvm-flow-resources = { module = "dev.icerock.moko:mvvm-flow-resources", version.ref = "mokoVersion" }
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "mokoMainVersion" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "mokoMainVersion" }
+
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version = "2.6.2" }
 
 [plugins]

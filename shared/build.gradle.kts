@@ -36,6 +36,8 @@ kotlin {
                 implementation(libs.ktor.client.content.negotiation)//converts response to dto object
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.ktor.client.logging)// enable http logging
+
+                // kotlin-inject runtime
                 implementation(libs.kotlinInject.runtime)
             }
         }

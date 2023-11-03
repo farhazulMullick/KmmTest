@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.compose)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -22,12 +23,20 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
+            export("dev.icerock.moko:resources:0.23.0")
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
+                //Compose
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
+                //Koin
                 implementation(libs.koin.core)
                 implementation(libs.koin.compose)
 
@@ -39,6 +48,13 @@ kotlin {
 
                 // kotlin-inject runtime
                 implementation(libs.kotlinInject.runtime)
+
+                //moko
+                api(libs.moko.mvvm.core)
+                api(libs.moko.mvvm.compose)
+                api(libs.moko.mvvm.flow)
+                api(libs.moko.mvvm.flow.compose)
+                api(libs.moko.mvvm.flow.resources)
             }
         }
         val commonTest by getting {
@@ -79,4 +95,9 @@ dependencies {
     add("kspIosX64", libs.kotlinInject.compiler)
     add("kspIosArm64", libs.kotlinInject.compiler)
     add("kspIosSimulatorArm64", libs.kotlinInject.compiler)
+
+    commonMainApi("dev.icerock.moko:resources:0.23.0")
+    commonMainApi("dev.icerock.moko:resources-compose:0.23.0") // for compose multiplatform
+
+    commonTestImplementation("dev.icerock.moko:resources-test:0.23.0")
 }

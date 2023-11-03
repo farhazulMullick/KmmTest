@@ -5,6 +5,7 @@ plugins {
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
+    applyDefaultHierarchyTemplate()
     androidTarget {
         compilations.all {
             kotlinOptions {
@@ -42,7 +43,6 @@ kotlin {
             }
         }
         val androidMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 implementation(libs.koin.android)
                 implementation(libs.ktor.client.android)
@@ -50,7 +50,6 @@ kotlin {
         }
 
         val iosMain by getting {
-            dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.ios)
             }

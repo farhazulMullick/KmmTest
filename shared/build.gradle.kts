@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -57,7 +58,6 @@ kotlin {
                 api(libs.moko.mvvm.flow.resources)
                 api(libs.moko.resources)
                 api(libs.moko.resources.compose)
-
             }
         }
         val commonTest by getting {

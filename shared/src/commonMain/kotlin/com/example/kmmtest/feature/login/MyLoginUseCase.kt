@@ -11,4 +11,7 @@ class MyLoginUseCase(
         myLoginDataSource.print()
         println("LoginUsecase injected")
     }
+    fun tempuseCase(){
+        println("tempuseCase function injected")
+    }
 }

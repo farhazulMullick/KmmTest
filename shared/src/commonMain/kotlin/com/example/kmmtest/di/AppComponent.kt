@@ -10,6 +10,10 @@ import me.tatarka.inject.annotations.Provides
 abstract class AppComponent {
     abstract val myLoginUseCase: MyLoginUseCase
 
+    companion object {
+        fun create() = AppComponent::class.create()
+    }
+
     @Provides
     fun provideMyLoginDs(bind: MyLoginDataSourceImpl): MyLoginDataSource = bind
 }

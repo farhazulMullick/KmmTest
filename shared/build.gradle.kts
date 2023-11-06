@@ -98,4 +98,6 @@ dependencies {
     add("kspIosX64", libs.kotlinInject.compiler)
     add("kspIosArm64", libs.kotlinInject.compiler)
     add("kspIosSimulatorArm64", libs.kotlinInject.compiler)
+    //add("kspCommonMainMetadata", libs.kotlinInject.compiler)
+    add("kspAndroid", libs.kotlinInject.compiler)
 }

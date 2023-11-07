@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose)
     alias(libs.plugins.kotlinSerialization)
+//    id("dev.icerock.mobile.multiplatform-resources")
+//    alias(libs.plugins.multiplatformResources)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -24,7 +26,6 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            export("dev.icerock.moko:resources:0.23.0")
         }
     }
 
@@ -88,6 +89,7 @@ kotlin {
 
 android {
     namespace = "com.example.kmmtest"
+    sourceSets["main"].resources.srcDirs("src/commonMain/resources")
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -105,3 +107,7 @@ dependencies {
     //add("kspCommonMainMetadata", libs.kotlinInject.compiler)
     add("kspAndroid", libs.kotlinInject.compiler)
 }
+//multiplatformResources {
+//    multiplatformResourcesPackage = "com.example.kmmtest"     // required
+//
+//}

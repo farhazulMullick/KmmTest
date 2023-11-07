@@ -7,8 +7,8 @@ import com.example.kmmtest.di.AppComponent
 import com.example.kmmtest.feature.login.loginViewModel
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
+import dev.icerock.moko.resources.compose.painterResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -25,5 +25,5 @@ fun App(
 
     viewModel.testLogin()
     Text("My sucess *****")
-//    Image(painter = painterResource(MR.images.test_2),contentDescription = null)
+    Image(painter = painterResource(MR.images.audio_play_pause),contentDescription = null)
 }

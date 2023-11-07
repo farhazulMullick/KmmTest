@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose)
     alias(libs.plugins.kotlinSerialization)
-//    id("dev.icerock.mobile.multiplatform-resources")
+    id("dev.icerock.mobile.multiplatform-resources")
 //    alias(libs.plugins.multiplatformResources)
 }
 
@@ -107,7 +107,7 @@ dependencies {
     //add("kspCommonMainMetadata", libs.kotlinInject.compiler)
     add("kspAndroid", libs.kotlinInject.compiler)
 }
-//multiplatformResources {
-//    multiplatformResourcesPackage = "com.example.kmmtest"     // required
-//
-//}
+multiplatformResources {
+    multiplatformResourcesPackage = "com.example.kmmtest"     // required
+
+}

@@ -5,6 +5,10 @@ buildscript {
         mavenCentral()
     }
 
+    dependencies {
+        classpath( "dev.icerock.moko:resources-generator:0.23.0")
+    }
+
 }
 plugins {
     //trick: for the same plugin versions in all sub-modules
@@ -15,5 +19,4 @@ plugins {
     alias(libs.plugins.ksp).apply(false)
     alias(libs.plugins.compose).apply(false)
     alias(libs.plugins.kotlinSerialization).apply(false)
-    alias(libs.plugins.multiplatformResources).apply(false)
 }

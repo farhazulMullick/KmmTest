@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose)
     alias(libs.plugins.kotlinSerialization)
-//    id("dev.icerock.mobile.multiplatform-resources")
+    id ("dev.icerock.mobile.multiplatform-resources")
 //    alias(libs.plugins.multiplatformResources)
 }
 
@@ -26,6 +26,8 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
+            export("dev.icerock.moko:resources:0.23.0")
+            export("dev.icerock.moko:graphics:0.9.0") // toUIColor here
         }
     }
 
@@ -89,6 +91,8 @@ kotlin {
 
 android {
     namespace = "com.example.kmmtest"
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
     compileSdk = 34
     defaultConfig {
@@ -107,7 +111,6 @@ dependencies {
     //add("kspCommonMainMetadata", libs.kotlinInject.compiler)
     add("kspAndroid", libs.kotlinInject.compiler)
 }
-//multiplatformResources {
-//    multiplatformResourcesPackage = "com.example.kmmtest"     // required
-//
-//}
+multiplatformResources {
+    multiplatformResourcesPackage = "com.example.kmmtest"     // required
+}

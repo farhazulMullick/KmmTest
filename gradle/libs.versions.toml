@@ -1,5 +1,5 @@
 [versions]
-agp = "8.1.2"
+agp = "8.0.1"
 kotlin = "1.8.22"
 compose = "1.5.1"
 compose-compiler = "1.4.8"
@@ -48,6 +48,7 @@ moko-resources-compose = { module = "dev.icerock.moko:resources-compose", versio
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version = "2.6.2" }
 
 [plugins]
+
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -57,4 +58,4 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 kotlinJVM = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
-multiplatformResources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "mokoMainVersion" }
+multiplatformResources = { id = "dev.icerock.mobile.multiplatform-resources"}

@@ -37,17 +37,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-//class Testing() {
-//    lateinit var useCase: MyLoginUseCase
-//
-//    fun call() {
-//        useCase = AppComponent::class.create().myLoginUseCase
-//    }
-//}
+class Testing() {
+    lateinit var useCase: MyLoginUseCase
 
-//fun main() {
-//    Testing().call()
-//}
+    fun call() {
+        useCase = AppComponent::class.create().myLoginUseCase
+    }
+}
+
+fun main() {
+    Testing().call()
+}
 
 @Composable
 fun GreetingView(text: String) {

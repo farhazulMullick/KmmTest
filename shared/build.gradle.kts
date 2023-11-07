@@ -11,7 +11,7 @@ plugins {
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     targetHierarchy.default()
-    androidTarget {
+    android() {
         compilations.all {
             kotlinOptions {
                 jvmTarget = "17"
